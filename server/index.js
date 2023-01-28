@@ -1,13 +1,31 @@
 const express = require('express')
 const app = express()
+const axios = require('axios');
 const dotenv = require("dotenv");
 const Port = process.env.PORT || 4000;
 
 
 dotenv.config();
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.get('/', async(req, res) => {
+    const username = req.query.username || 'myogeshchavan97';
+    try {
+        const result = await axios.get(
+            `https://api.github.com/users/${username}/repos`
+        );
+        const repos = result.data
+            .map((repo) => ({
+                name: repo.name,
+                url: repo.html_url,
+                description: repo.description,
+                stars: repo.stargazers_count
+            }))
+            .sort((a, b) => b.stars - a.stars);
+
+        res.send(repos);
+    } catch (error) {
+        res.status(400).send('Error while getting list of repositories');
+    }
+});
 
 app.listen(Port, () => {
     console.log(`Example app listening on port ${Port}`)
