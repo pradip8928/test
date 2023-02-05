@@ -4,8 +4,11 @@
         "src": "./index.js",
         "use": "@now/node"
     }],
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/"
-    }]
+
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/(.*)", "status": 404, "dest": "/other-404.html" }
+    ]
+
+
 }
