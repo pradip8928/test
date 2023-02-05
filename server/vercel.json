@@ -1,13 +1,16 @@
 {
     "version": 2,
     "builds": [{
-        "src": "./index.js",
-        "use": "@now/node"
+        "src": "./api/index.js",
+        "use": "@vercel/node"
     }],
 
     "routes": [
-        { "handle": "filesystem" },
-        { "src": "/(.*)", "status": 404, "dest": "/other-404.html" }
+
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
     ]
 
 
