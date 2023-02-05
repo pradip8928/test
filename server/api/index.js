@@ -1,21 +1,17 @@
-// const express = require('express')
-// const axios = require('axios');
-// const dotenv = require("dotenv");
+const express = require('express')
+const axios = require('axios');
+const dotenv = require("dotenv");
 
 
-import express from 'express';
-import axios from 'axios';
-import dotenv from 'dotenv';
+// import express from 'express';
+// import axios from 'axios';
+// import dotenv from 'dotenv';
 const app = express()
 
 const Port = process.env.PORT || 4000;
 
 
 dotenv.config();
-
-app.use("/home", (req, res) => {
-    res.json({ msg: "hlw from express app" })
-})
 app.get('/', async(req, res) => {
     const username = req.query.username || 'myogeshchavan97';
     try {
@@ -42,4 +38,4 @@ app.listen(Port, () => {
 })
 
 
-// module.exports = app;
+module.exports = app;
