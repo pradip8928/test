@@ -13,9 +13,9 @@ const Port = process.env.PORT || 4000;
 
 dotenv.config();
 
-app.use("/", (req, res) => {
-    res.send("Welcome to my world")
-})
+// app.use("/", (req, res) => {
+//     res.send("Welcome to my world")
+// })
 app.get('/home', async(req, res) => {
     const username = req.query.username || 'myogeshchavan97';
     try {
