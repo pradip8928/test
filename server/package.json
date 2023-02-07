@@ -2,13 +2,14 @@
     "name": "server",
     "version": "1.0.0",
     "description": "",
-    "main": "./api/index.js",
+    "main": "index.js",
 
     "engines": {
         "node": "16.x"
     },
     "scripts": {
-        "server": "nodemon ./api/index.js"
+        "start": "node index.js",
+        "server": "nodemon index.js"
     },
     "author": "",
     "license": "ISC",
